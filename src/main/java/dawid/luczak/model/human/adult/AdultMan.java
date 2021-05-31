@@ -1,18 +1,18 @@
-package dawid.luczak.model;
+package dawid.luczak.model.human.adult;
 
 import dawid.luczak.contract.Male;
-import dawid.luczak.model.human.Adult;
 import dawid.luczak.model.human.Human;
-import dawid.luczak.model.human.Teenager;
+import dawid.luczak.model.human.old.OldMan;
+import dawid.luczak.model.human.teenager.Teenager;
 
 public class AdultMan extends Adult implements Male {
 	
-	public AdultMan(Teenager teen){
-		super(teen);
+	public AdultMan(Teenager human){
+		super(human);
 	}
 	
-	public AdultMan(Adult adult){
-		super(adult);
+	AdultMan(Adult human){
+		super(human);
 	}
 	
 	@Override
@@ -23,7 +23,7 @@ public class AdultMan extends Adult implements Male {
 	
 	@Override
 	public void happy() {
-		System.out.println("I am happy!");
+		System.out.println("I am happy.");
 	}
 	
 	@Override
