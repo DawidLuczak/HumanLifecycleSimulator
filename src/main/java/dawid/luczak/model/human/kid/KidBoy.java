@@ -1,9 +1,9 @@
-package dawid.luczak.model;
+package dawid.luczak.model.human.kid;
 
 import dawid.luczak.contract.Male;
-import dawid.luczak.model.human.Baby;
 import dawid.luczak.model.human.Human;
-import dawid.luczak.model.human.Kid;
+import dawid.luczak.model.human.baby.Baby;
+import dawid.luczak.model.human.teenager.TeenBoy;
 
 public class KidBoy extends Kid implements Male {
 	
@@ -11,6 +11,10 @@ public class KidBoy extends Kid implements Male {
 		super(baby);
 	}
 	
+	KidBoy(Kid kid){
+		super(kid);
+		nameUpdate();
+	}
 	
 	@Override
 	public Human copy() {

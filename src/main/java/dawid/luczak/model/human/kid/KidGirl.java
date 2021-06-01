@@ -1,13 +1,19 @@
-package dawid.luczak.model;
+package dawid.luczak.model.human.kid;
 
 import dawid.luczak.contract.Female;
-import dawid.luczak.model.human.Baby;
 import dawid.luczak.model.human.Human;
-import dawid.luczak.model.human.Kid;
+import dawid.luczak.model.human.baby.Baby;
+import dawid.luczak.model.human.teenager.TeenGirl;
 
 public class KidGirl extends Kid implements Female {
+	
 	public KidGirl(Baby baby) {
 		super(baby);
+	}
+	
+	KidGirl(Kid kid) {
+		super(kid);
+		nameUpdate();
 	}
 	
 	@Override
