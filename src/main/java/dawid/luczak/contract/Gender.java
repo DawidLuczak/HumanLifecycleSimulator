@@ -1,6 +1,5 @@
 package dawid.luczak.contract;
 
-import java.time.LocalDateTime;
 
 public interface Gender {
 	
@@ -13,6 +12,10 @@ public interface Gender {
 	boolean isMale();
 	
 	boolean isFemale();
+	
+	Female getFemale();
+	
+	Male getMale();
 }
 
 
