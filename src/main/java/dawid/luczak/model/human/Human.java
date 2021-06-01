@@ -1,11 +1,16 @@
 package dawid.luczak.model.human;
 
 import dawid.luczak.contract.HumanBeing;
-import dawid.luczak.model.*;
+import dawid.luczak.model.human.baby.Baby;
 
 public abstract class Human extends Personality implements HumanBeing
 {
-	public Human(){
+	
+	public static Human create(){
+		return new Human() {};
+	}
+	
+	protected Human(){
 		super();
 	}
 	
@@ -14,18 +19,22 @@ public abstract class Human extends Personality implements HumanBeing
 	}
 	
 	@Override
+	public Human copy() {
+		return new Human(this) {};
+	}
+	
+	@Override
+	public Human growUp() {
+		return Baby.create();
+	}
+	
+	
+	@Override
 	public boolean isAlive() {
 		return !(this instanceof Corps);
 	}
 	
 	/*	OTHER  */
-	@Override
-	public String toString() {
-		return getName() + "\n" +
-							 getGenderString() + "\n" +
-							 getBirthDate().toLocalDate() + ", age: " + getAge();
-	}
-	
 	
 	@Override
 	public void happy() {
@@ -43,7 +52,10 @@ public abstract class Human extends Personality implements HumanBeing
 	}
 	
 	@Override
-	public Human copy() {
-		return null;
+	public String toString() {
+		return getName() + "\n" +
+							 getGenderString() + "\n" +
+							 getBirthDate().toLocalDate() + ", age: " + getAge() + "\n"
+							 + "Adult?: " + isAdult() + "\n";
 	}
 }
