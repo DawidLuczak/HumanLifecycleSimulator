@@ -1,9 +1,9 @@
-package dawid.luczak.model;
+package dawid.luczak.model.human.old;
 
 import dawid.luczak.contract.Male;
-import dawid.luczak.model.human.Adult;
+import dawid.luczak.model.human.Corps;
 import dawid.luczak.model.human.Human;
-import dawid.luczak.model.human.Old;
+import dawid.luczak.model.human.adult.Adult;
 
 public class OldMan extends Old implements Male {
 	
@@ -11,7 +11,7 @@ public class OldMan extends Old implements Male {
 		super(human);
 	}
 	
-	public OldMan(Old human){
+	OldMan(Old human){
 		super(human);
 	}
 	

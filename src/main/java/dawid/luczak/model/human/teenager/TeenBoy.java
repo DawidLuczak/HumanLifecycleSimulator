@@ -1,24 +1,24 @@
-package dawid.luczak.model;
+package dawid.luczak.model.human.teenager;
 
 import dawid.luczak.contract.Male;
 import dawid.luczak.model.human.Human;
-import dawid.luczak.model.human.Kid;
-import dawid.luczak.model.human.Teenager;
+import dawid.luczak.model.human.adult.AdultMan;
+import dawid.luczak.model.human.kid.Kid;
 
 public class TeenBoy extends Teenager implements Male {
 	
-	public TeenBoy(Kid kid){
-		super(kid);
+	public TeenBoy(Kid human){
+		super(human);
 	}
 	
-	public TeenBoy(Teenager teen){
-		super(teen);
+	TeenBoy(Teenager human){
+		super(human);
 	}
 	
 	
 	@Override
 	public Human copy() {
-		return null;
+		return new TeenBoy(this);
 	}
 	
 	@Override
