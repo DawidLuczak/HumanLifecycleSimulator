@@ -1,8 +1,10 @@
 package dawid.luczak.model.human;
 
 import dawid.luczak.contract.*;
+import dawid.luczak.model.human.adult.Adult;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public abstract class Personality implements Name, Age, Gender {
 	private String name;
@@ -35,12 +37,14 @@ public abstract class Personality implements Name, Age, Gender {
 		setSecondName(source.getSecondName());
 		setThirdName(source.getThirdName());
 		setLastName(source.getLastName());
+		nameUpdate();
 	}
 	
 	@Override
 	public void nameUpdate() {
+		name = "";
 		if (getFirstName() != null)
-			name = getFirstName();
+			name += getFirstName();
 		if (getSecondName() != null)
 			name += " " + getSecondName();
 		if (getThirdName() != null)
@@ -56,7 +60,7 @@ public abstract class Personality implements Name, Age, Gender {
 	
 	@Override
 	public void setFirstName(String firstName) {
-	
+		nameUpdate();
 	}
 	
 	@Override
@@ -66,7 +70,7 @@ public abstract class Personality implements Name, Age, Gender {
 	
 	@Override
 	public void setSecondName(String secondName) {
-	
+		nameUpdate();
 	}
 	
 	@Override
@@ -76,7 +80,7 @@ public abstract class Personality implements Name, Age, Gender {
 	
 	@Override
 	public void setThirdName(String thirdName) {
-	
+		nameUpdate();
 	}
 	
 	@Override
@@ -86,7 +90,7 @@ public abstract class Personality implements Name, Age, Gender {
 	
 	@Override
 	public void setLastName(String lastName) {
-	
+		nameUpdate();
 	}
 	
 	
@@ -104,7 +108,7 @@ public abstract class Personality implements Name, Age, Gender {
 	
 	@Override
 	public boolean isAdult() {
-	return getAge() >= 18;
+	return this instanceof Adult;
 	}
 	
 	@Override
@@ -132,9 +136,30 @@ public abstract class Personality implements Name, Age, Gender {
 	}
 	
 	@Override
+	public Female getFemale() {
+		return null;
+	}
+	
+	@Override
+	public Male getMale() {
+		return null;
+	}
+	
+	@Override
 	public String getGenderString() {
 		return isMale() ? "male" : isFemale() ? "female" : "unknown";
 	}
 	
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Personality)) return false;
+		Personality that = (Personality) o;
+		return Objects.equals(getName(), that.getName()) && Objects.equals(dateOfBirth, that.dateOfBirth);
+	}
 	
+	@Override
+	public int hashCode() {
+		return Objects.hash(getName(), dateOfBirth);
+	}
 }
