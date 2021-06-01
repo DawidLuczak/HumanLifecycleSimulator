@@ -1,8 +1,8 @@
-package dawid.luczak.model;
+package dawid.luczak.model.human.baby;
 
 import dawid.luczak.contract.Male;
-import dawid.luczak.model.human.Baby;
 import dawid.luczak.model.human.Human;
+import dawid.luczak.model.human.kid.KidBoy;
 
 public class BabyBoy extends Baby implements Male {
 	
@@ -10,19 +10,14 @@ public class BabyBoy extends Baby implements Male {
 		super(firstName, lastName);
 	}
 	
-	@Override
-	public void setSecondName(String secondName) {
-	
+	BabyBoy(Baby human){
+		super(human);
 	}
 	
-	@Override
-	public void setThirdName(String thirdName) {
-	
-	}
 	
 	@Override
 	public Human copy() {
-		return null;
+		return new BabyBoy(this);
 	}
 	
 	@Override
