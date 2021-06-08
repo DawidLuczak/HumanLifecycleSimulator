@@ -1,15 +1,12 @@
 package dawid.luczak.model.human.kid;
 
 
-import dawid.luczak.contract.Female;
-import dawid.luczak.contract.Male;
 import dawid.luczak.model.human.Human;
 import dawid.luczak.model.human.baby.Baby;
 import dawid.luczak.model.human.teenager.Teenager;
 
 public abstract class Kid extends Baby {
 	
-	private String secondName;
 	
 	public static Kid create(){
 		return new Kid(Baby.create()) {};
@@ -17,12 +14,11 @@ public abstract class Kid extends Baby {
 	
 	protected Kid(Baby human){
 		super(human);
-		nameUpdate();
 	}
 	
 	protected Kid(Kid human){
 		super(human);
-		setSecondName(human.getSecondName());
+		getPersonality().setHuman(this);
 	}
 	
 	@Override
@@ -36,25 +32,14 @@ public abstract class Kid extends Baby {
 	}
 	
 	@Override
-	public Male getMale() {
+	public Human getMale() {
 		return new KidBoy(this);
 	}
 	
 	@Override
-	public Female getFemale() {
+	public Human getFemale() {
 		return new KidGirl(this);
 	}
-	
-	@Override
-	public void setSecondName(String secondName) {
-		this.secondName = secondName;
-		nameUpdate();
-	}
-	
-	@Override
-	public String getSecondName() {
-		return secondName;
-	}
-	
+
 	
 }
