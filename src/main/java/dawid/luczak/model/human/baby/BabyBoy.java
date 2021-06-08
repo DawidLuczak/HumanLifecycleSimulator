@@ -1,6 +1,6 @@
 package dawid.luczak.model.human.baby;
 
-import dawid.luczak.contract.Male;
+import dawid.luczak.contract.human.Male;
 import dawid.luczak.model.human.Human;
 import dawid.luczak.model.human.kid.KidBoy;
 
@@ -12,6 +12,7 @@ public class BabyBoy extends Baby implements Male {
 	
 	BabyBoy(Baby human){
 		super(human);
+		getPersonality().setHuman(this);
 	}
 	
 	
@@ -39,4 +40,6 @@ public class BabyBoy extends Baby implements Male {
 	public void sad() {
 	
 	}
+	
+
 }
