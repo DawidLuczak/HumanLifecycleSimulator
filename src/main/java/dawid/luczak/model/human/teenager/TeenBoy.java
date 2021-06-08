@@ -1,6 +1,6 @@
 package dawid.luczak.model.human.teenager;
 
-import dawid.luczak.contract.Male;
+import dawid.luczak.contract.human.Male;
 import dawid.luczak.model.human.Human;
 import dawid.luczak.model.human.adult.AdultMan;
 import dawid.luczak.model.human.kid.Kid;
@@ -13,6 +13,7 @@ public class TeenBoy extends Teenager implements Male {
 	
 	TeenBoy(Teenager human){
 		super(human);
+		getPersonality().setHuman(this);
 	}
 	
 	

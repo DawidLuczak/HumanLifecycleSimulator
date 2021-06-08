@@ -1,6 +1,6 @@
 package dawid.luczak.model.human.teenager;
 
-import dawid.luczak.contract.Female;
+import dawid.luczak.contract.human.Female;
 import dawid.luczak.model.human.Human;
 import dawid.luczak.model.human.adult.AdultWoman;
 import dawid.luczak.model.human.kid.Kid;
@@ -13,6 +13,7 @@ public class TeenGirl extends Teenager implements Female {
 	
 	TeenGirl(Teenager human) {
 		super(human);
+		getPersonality().setHuman(this);
 	}
 	
 	@Override
