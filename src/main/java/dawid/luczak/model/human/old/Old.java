@@ -1,7 +1,5 @@
 package dawid.luczak.model.human.old;
 
-import dawid.luczak.contract.Female;
-import dawid.luczak.contract.Male;
 import dawid.luczak.model.human.Corps;
 import dawid.luczak.model.human.Human;
 import dawid.luczak.model.human.adult.Adult;
@@ -18,6 +16,7 @@ public abstract class Old extends Adult {
 	
 	private Old(Old old){
 		super(old);
+		getPersonality().setHuman(this);
 	}
 	
 	@Override
@@ -31,12 +30,12 @@ public abstract class Old extends Adult {
 	}
 	
 	@Override
-	public Female getFemale() {
+	public Human getFemale() {
 		return new OldWoman(this);
 	}
 	
 	@Override
-	public Male getMale() {
+	public Human getMale() {
 		return new OldMan(this);
 	}
 }

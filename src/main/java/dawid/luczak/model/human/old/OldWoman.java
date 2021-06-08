@@ -1,6 +1,6 @@
 package dawid.luczak.model.human.old;
 
-import dawid.luczak.contract.Female;
+import dawid.luczak.contract.human.Female;
 import dawid.luczak.model.human.Corps;
 import dawid.luczak.model.human.Human;
 import dawid.luczak.model.human.adult.Adult;
@@ -13,6 +13,7 @@ public class OldWoman extends Old implements Female {
 	
 	OldWoman(Old human) {
 		super(human);
+		getPersonality().setHuman(this);
 	}
 	
 	@Override
