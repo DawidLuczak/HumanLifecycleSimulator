@@ -1,4 +1,4 @@
-package dawid.luczak.contract;
+package dawid.luczak.contract.human.personality;
 
 import java.time.LocalDateTime;
 
