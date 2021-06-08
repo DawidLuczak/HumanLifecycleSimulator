@@ -1,16 +1,10 @@
-package dawid.luczak.contract;
+package dawid.luczak.contract.human.personality;
 
-import dawid.luczak.model.human.Human;
+import java.util.List;
 
 public interface Name {
 	
-	String getName();
-	
-	void setName(String name);
-	
-	void nameUpdate();
-	
-	void setNames(Human source);
+	List<String> getNames();
 	
 	String getFirstName();
 	
