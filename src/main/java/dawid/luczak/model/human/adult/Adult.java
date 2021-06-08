@@ -1,7 +1,5 @@
 package dawid.luczak.model.human.adult;
 
-import dawid.luczak.contract.Female;
-import dawid.luczak.contract.Male;
 import dawid.luczak.model.human.Human;
 import dawid.luczak.model.human.old.Old;
 import dawid.luczak.model.human.teenager.Teenager;
@@ -12,13 +10,15 @@ public abstract class Adult extends Teenager {
 		return new Adult(Teenager.create()) {};
 	}
 	
-	private Adult(Adult source) {
-		super(source);
-	}
-	
 	protected Adult(Teenager human){
 		super(human);
 	}
+	
+	private Adult(Adult source) {
+		super(source);
+		getPersonality().setHuman(this);
+	}
+	
 	
 	@Override
 	public Human copy() {
@@ -31,12 +31,12 @@ public abstract class Adult extends Teenager {
 	}
 	
 	@Override
-	public Male getMale() {
+	public Human getMale() {
 		return new AdultMan(this);
 	}
 	
 	@Override
-	public Female getFemale() {
+	public Human getFemale() {
 		return new AdultWoman(this);
 	}
 }
